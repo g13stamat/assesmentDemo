@@ -1,0 +1,3 @@
+DESCRIPTION,ISPUBLIC,FILENAME,CONTENT
+gist 1 description,true,gist1file.txt,content for gist1file
+gist 2 description,true,gist2file.txt,content for gist2file

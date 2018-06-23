@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   
   
-  	<name>StudentApp Serenity BDD</name>
+	<name>StudentApp Serenity BDD</name>
 
 	
 	<properties>
@@ -84,6 +84,11 @@
 			<version>1.7.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -119,8 +124,8 @@
 				<version>2.18</version>
 				<configuration>
 					<includes>
-						<include>**/studentapp/**/*.java</include>
-						<include>**/studentapp/*.java</include>
+						<include>**/payconiq/**/*.java</include>
+						<include>**/payconiq/*.java</include>
 					</includes>
 					<!-- <forkCount>4</forkCount>-->
 					<!-- <reuseForks>false</reuseForks>-->
@@ -169,14 +174,6 @@
 			</plugin>
 		</plugins>
 	</build>
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
