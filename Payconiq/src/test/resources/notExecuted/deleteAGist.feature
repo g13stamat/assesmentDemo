@@ -1,7 +1,8 @@
 Feature: Delete a gist
 
 Scenario Outline: sending a delete gist request passing the gist Id
-When the user deletes a gist with Id <Id> gets a 204 response
+When the user deletes a gist with Id <Id>
+Then the status code is 204
 
 
 Examples:

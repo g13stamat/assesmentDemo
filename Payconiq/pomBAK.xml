@@ -1,19 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>StudentApp</groupId>
-	<artifactId>StudentApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Demo</groupId>
+  <artifactId>Payconiq</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  
 	<name>StudentApp Serenity BDD</name>
 
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<serenity.version>1.9.19</serenity.version> <!-- https://bintray.com/serenity/maven/serenity-core/ -->
-		<serenity.maven.version>1.9.19</serenity.maven.version>
-		<serenity.cucumber.version>1.9.8</serenity.cucumber.version> <!-- https://bintray.com/serenity/maven/serenity-cucumber/ -->
+		<serenity.version>1.4.1-rc.6</serenity.version> <!-- https://bintray.com/serenity/maven/serenity-core/ -->
+		<serenity.maven.version>1.4.1-rc.6</serenity.maven.version>
+		<serenity.cucumber.version>1.1.6</serenity.cucumber.version> <!-- https://bintray.com/serenity/maven/serenity-cucumber/ -->
 	</properties>
 
 	<!-- Define the Bintray repos for convenience -->
@@ -23,7 +22,7 @@
 			<name>bintray</name>
 			<url>http://dl.bintray.com/serenity/maven</url>
 		</repository>
-	</repositories>
+	</repositories>  
 	<pluginRepositories>
 		<pluginRepository>
 			<id>serenity</id>
@@ -85,7 +84,6 @@
 			<version>1.7.0</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
@@ -95,6 +93,24 @@
 	<build>
 		<plugins>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>enforce</id>
+						<configuration>
+							<rules>
+								<requireUpperBoundDeps />
+							</rules>
+						</configuration>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -111,10 +127,10 @@
 						<include>**/payconiq/**/*.java</include>
 						<include>**/payconiq/*.java</include>
 					</includes>
-					<forkCount>4</forkCount>
-					<reuseForks>true</reuseForks>
-					<!-- <parallel>methods</parallel> -->
-					<!-- <threadCount>10</threadCount> -->
+					<!-- <forkCount>4</forkCount>-->
+					<!-- <reuseForks>false</reuseForks>-->
+					<!--<parallel>methods</parallel>-->
+				 	 <!-- <threadCount>10</threadCount> -->  
 					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 				</configuration>
 				<executions>
@@ -158,4 +174,7 @@
 			</plugin>
 		</plugins>
 	</build>
+  
+  
+  
 </project>

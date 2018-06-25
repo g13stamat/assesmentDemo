@@ -1,7 +1,8 @@
 Feature: List a specific gist
 
 Scenario Outline: sending a get gist request passing the gist Id
-When the user requests the gist with id <id> gets a 200ok response
+When the user requests the gist with id <id>
+Then the status code is 200
 
 Examples:
 |id|

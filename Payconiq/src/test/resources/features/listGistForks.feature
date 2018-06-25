@@ -1,8 +1,9 @@
 Feature: Listing the forks for a specific gist
 
 Scenario Outline: sending a get request for all forks a specific gist
-When the user gets all forks for the gist with id <id> gets a 200 response
+When the user gets all forks for the gist with id <id>
+Then the status code is 200
 
 Examples:
 |id|
-|dc520ab30a8980e8df1ab1401e5e1084|
+|41105f52c05abe426a22b052c1032274|

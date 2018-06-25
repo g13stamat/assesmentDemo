@@ -23,64 +23,73 @@ public class GistCucumberSteps {
 	
 	
 	@When("^the user requests all gists$")
-	public void getAllGists()
+	public ValidatableResponse getAllGists()
 	{
 		
-		steps.getAllGists().statusCode(200);
+		response = steps.getAllGists();
+		return response;
 	}
 	
 	
-	@When("^the user requests the gist with id (.*) gets a 200ok response$")
-	public void getAGist(String gistId)
+	@When("^the user requests the gist with id (.*)$")
+	public ValidatableResponse getAGist(String gistId)
 	{
-		steps.getSpecificGist(gistId).statusCode(200);
+		response = steps.getSpecificGist(gistId);
+		return response;
 	}
 	
 	
-	@When("^the user requests all gists from user with userId (.*) gets a 200ok response$")
-	public void getAllGistsFromUser(String userId)
+	@When("^the user requests all gists from user with userId (.*)$")
+	public ValidatableResponse getAllGistsFromUser(String userId)
 	{
-		steps.getGistsFromUser(userId).statusCode(200);
+		response=steps.getGistsFromUser(userId);
+		return response;
 	}
 	
 	@When("^the user requests all starred gists$")
-	public void getAllstarredGists()
+	public ValidatableResponse getAllstarredGists()
 	{
-		steps.getStarredGists().statusCode(200);
+		response = steps.getStarredGists();
+		return response;
 	}
 	
-	@When("^the user stars the gist with id (.*) gets a 200ok response$")
-	public void userStarsAGist(String gistId)
+	@When("^the user stars the gist with id (.*)$")
+	public ValidatableResponse userStarsAGist(String gistId)
 	{
-		steps.starAGist(gistId).statusCode(204);
+		response = steps.starAGist(gistId);
+		return response;
 		
 	}
 	
-	@When("^the user checks if the gist with id (.*) is starred gets a 204 response$")
-	public void userChecksIfGistStarred(String gistId)
+	@When("^the user checks if the gist with id (.*) is starred$")
+	public ValidatableResponse userChecksIfGistStarred(String gistId)
 	{
-		steps.checkIfGistStarred(gistId).statusCode(204);
+		response = steps.checkIfGistStarred(gistId);
+		return response;
 	}
 
-	@When("^the user unstars the gist with id (.*) gets a 204 response$")
-	public void userUnstarsGist(String gistId)
+	@When("^the user unstars the gist with id (.*)$")
+	public ValidatableResponse userUnstarsGist(String gistId)
 	{
-		steps.unstarAGist(gistId).statusCode(204);
+		response = steps.unstarAGist(gistId);
+		return response;
 	}
 	
 	
-	@When("^the user forks the gist with id (.*) gets a 201 response$")
-	public void userForksAGist(String gistId)
+	@When("^the user forks the gist with id (.*)$")
+	public ValidatableResponse userForksAGist(String gistId)
 	{
-		steps.forkAGist(gistId).statusCode(201);
+		response = steps.forkAGist(gistId);
+		return response;
 		
 	}
 	
 	@When("^the user gets all forks for the gist with id (.*) gets a 200 response$")
-	public void userGetsAllForksForAGist(String gistId)
+	public ValidatableResponse userGetsAllForksForAGist(String gistId)
 	{
 		
-		steps.getAllForksForGist(gistId).statusCode(200);
+		response = steps.getAllForksForGist(gistId);
+		return response;
 	}
 	
 	
@@ -92,11 +101,12 @@ public class GistCucumberSteps {
 	}
 	
 	
-	@When("^the user deletes a gist with Id (.*) gets a 204 response$")
-	public void userDeletesAGist(String gistId)
+	@When("^the user deletes a gist with Id (.*)$")
+	public ValidatableResponse userDeletesAGist(String gistId)
 	{
 		
-		steps.deleteGist(gistId).assertThat().statusCode(204);
+		response = steps.deleteGist(gistId).assertThat();
+		return response;
 	}
 	
 	@Then("^the status code is (.*)$")
@@ -141,5 +151,14 @@ public class GistCucumberSteps {
 		return response;
 	}
 	
+	@When("^the user requests the commits for the gist with id (.*)$")
+	public ValidatableResponse userGetsGistCommits(String gistId)
+	{
+		response = steps.getAllCommitsForGist(gistId);
+		
+		return response;
+		
+		
+	}
 	
 }

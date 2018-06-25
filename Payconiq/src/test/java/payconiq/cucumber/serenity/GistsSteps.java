@@ -270,7 +270,20 @@ public class GistsSteps {
 		
 	}
 	
-	
+	@Step
+	public ValidatableResponse getAllCommitsForGist(String gistId)
+	{
+		
+		return  SerenityRest.rest()
+				.given()
+				.spec(ReusableSpecifications.getGenericRequestSpec(myToken))
+				.auth()
+				.oauth2(myToken, OAuthSignature.HEADER)
+				.when()
+				.get("/gists/"+gistId+"/forks")
+				.then();
+		
+	}
 	
 
 }
